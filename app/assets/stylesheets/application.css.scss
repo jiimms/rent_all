@@ -13,7 +13,7 @@ $red: #DB6161;
 body {
 		background: #0f1116;
 		width: 100%;
-		background: url(wrapper2.jpg) no-repeat center top;
+		background: image-url("wrapper2.jpg") no-repeat center top;
   	background-size: cover;
 	}
 
@@ -23,7 +23,7 @@ body {
 		margin:auto;
 		margin-top:3%;
 		min-height: 100vh;
-		background: url(bg1.jpg) no-repeat center top;
+		background: image-url("bg1.jpg") no-repeat center top;
   	background-size: cover;
 	}
 
