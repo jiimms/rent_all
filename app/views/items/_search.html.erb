@@ -1,0 +1,18 @@
+<% if @items.blank? %>
+  <h4>There are no Items containing the term <%= params[:search] %>.</h4>
+<% end %>
+
+<%=form_tag(items_path, :method => 'get', id: "search-form") do %>	
+<div class ="search-bar">
+	<%= text_field_tag :search, params[:search], placeholder: "Search"%>
+	</div>
+	<%= submit_tag "Search", class: "fake-button"%>
+<% end%>
+
+<%if params[:search]%>
+	<span class = "btn btn-info"><%=link_to "Back"%></span>
+<%end%>
+
+
+
+

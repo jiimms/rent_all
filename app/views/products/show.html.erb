@@ -1,0 +1,59 @@
+
+<%if current_user == User.find(1)%>
+	<div class ="row first">
+	  <div class = "col col-md-6 category-name-index">
+	  	<strong class = "category-name"><%= @product.category %></strong>
+		</div>
+
+		<div class ="col col-md-6 edit-button-show edit-button">
+	 		 <%= link_to(content_tag(:i,nil,class: 'fa fa-pencil-square-o'), edit_product_path(@product)) %>
+	  	<%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), @product, method: :delete, data: { confirm: 'Are you sure?' }) %>
+		</div>
+	</div>
+<%else%>
+	<div class ="row first">
+	  <div class = "col col-md-12 category-name-index">
+	  	<strong class = "category-name"><%= @product.category %></strong><br><br>
+	  </div>
+	</div>
+<%end%>
+
+<div class ="row">
+ 	<%if (@product.category == "Books")%>
+		<%@product.items.each do |i|%>
+		<div class ="col col-md-3">
+			<div class ="eachItem">
+				<div class ="image-wrapper">
+					<%= image_tag i.image.image.url %><br>
+					<%=i.item_for_rent%> <br>
+					Author:<%=i.brand%><br>
+					Rent: Rs.<%= i.rental_cost%>  <a href="/cart/<%= i.id%>", class = "addtocart">Add to cart</a>
+			</div>
+			</div> 
+			</div> 
+		<%end%>
+	<%else%>
+
+		<%@product.items.each do |i|%>
+		<div class ="col col-md-3">
+			<div class ="eachItem">
+				<div class ="image-wrapper">
+			
+					<%= image_tag i.image.image.url %><br>
+					<%=i.item_for_rent%><br> 
+					Brand:  <%=i.brand%><br>
+					Rent: Rs.<%=i.rental_cost%>
+			<a href="/cart/<%= i.id%>", class= "addtocart">Add to cart</a>
+			</div>
+			</div> 
+			</div> 
+		<%end%>
+	<%end%>
+</div>
+
+<%if current_user == User.find(1)%>
+	<div class ="edit-button-show">
+    <%= link_to(content_tag(:i,nil,class: 'fa fa-pencil-square-o'), edit_product_path(@product)) %>
+    <%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), @product, method: :delete, data: { confirm: 'Are you sure?' }) %>
+	</div>
+<%end%>
