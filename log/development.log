@@ -376,3 +376,20 @@ Started GET "/assets/wrapper2.jpg" for 127.0.0.1 at 2016-11-08 13:39:07 +0530
 
 
 Started GET "/assets/bg1.jpg" for 127.0.0.1 at 2016-11-08 13:39:07 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-08 21:14:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/_search.html.erb (2.7ms)
+  Rendered products/index.html.erb within layouts/application (9.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav.html.erb (90.6ms)
+Completed 200 OK in 574ms (Views: 516.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/wrapper2.jpg" for 127.0.0.1 at 2016-11-08 21:15:00 +0530
+
+
+Started GET "/assets/bg1.jpg" for 127.0.0.1 at 2016-11-08 21:15:00 +0530
