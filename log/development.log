@@ -393,3 +393,131 @@ Started GET "/assets/wrapper2.jpg" for 127.0.0.1 at 2016-11-08 21:15:00 +0530
 
 
 Started GET "/assets/bg1.jpg" for 127.0.0.1 at 2016-11-08 21:15:00 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-08 22:48:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/_search.html.erb (2.7ms)
+  Rendered products/index.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav.html.erb (26.5ms)
+Completed 200 OK in 3038ms (Views: 3013.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-34ed264d0e43656f315c632c942fd1a133052df8aa19ee6a3d993b13b5ec37af.css?body=1" for 127.0.0.1 at 2016-11-08 22:48:34 +0530
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-11-08 22:48:38 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (325.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 396ms (Views: 393.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-08 22:48:40 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O1gQ5ZUcYRfTR6Lixiu819yAJ2ZAWjaKsxl1rV+oaC57SXnkuQhmijOj8XmInC3cXAuWUhYumJLVsR8Oiscmjw==", "user"=>{"email"=>"jimmy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "jimmy@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2016-11-08 17:18:41.191873"], ["sign_in_count", 2], ["updated_at", "2016-11-08 17:18:41.193334"], ["id", 1]]
+  [1m[35m (86.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 336ms (ActiveRecord: 87.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-08 22:48:41 +0530
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/_search.html.erb (0.9ms)
+  Rendered products/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav.html.erb (3.0ms)
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2016-11-08 22:48:44 +0530
+Processing by ProductsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered products/_item_fields.html.erb (9.8ms)
+  Rendered products/_item_fields.html.erb (8.4ms)
+  Rendered products/_form.html.erb (34.9ms)
+  Rendered products/new.html.erb within layouts/application (36.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav.html.erb (1.0ms)
+Completed 200 OK in 141ms (Views: 84.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2016-11-08 22:49:40 +0530
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QTlxMh14dPdVlq0zFWlu37Jxd2qEkiA75fV+tqWb+4HVFpto6qeTXit9VUwGIVsyCe5NOSrYQep5sgu8u2pK+Q==", "product"=>{"category"=>"Hiking", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f2c73374f00 @tempfile=#<Tempfile:/tmp/RackMultipart20161108-5334-9e5t8e.jpg>, @original_filename="5471504383350390931-account_id=1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"product[image]\"; filename=\"5471504383350390931-account_id=1.jpg\"\r\nContent-Type: image/jpeg\r\n">, "items_attributes"=>{"0"=>{"item_for_rent"=>"shoes", "brand"=>"nike", "rental_cost"=>"200", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f2c73374d20 @tempfile=#<Tempfile:/tmp/RackMultipart20161108-5334-j7z4g7.jpg>, @original_filename="kiss.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"product[items_attributes][0][image]\"; filename=\"kiss.jpg\"\r\nContent-Type: image/jpeg\r\n">, "_destroy"=>"false"}}}, "commit"=>"Create Product"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (17.3ms)[0m  INSERT INTO "products" ("category", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["category", "Hiking"], ["image", "5471504383350390931-account_id_1.jpg"], ["created_at", "2016-11-08 17:19:41.439270"], ["updated_at", "2016-11-08 17:19:41.439270"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("brand", "rental_cost", "item_for_rent", "image", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["brand", "nike"], ["rental_cost", 200], ["item_for_rent", "shoes"], ["image", "kiss.jpg"], ["product_id", 1], ["created_at", "2016-11-08 17:19:41.458222"], ["updated_at", "2016-11-08 17:19:41.458222"]]
+  [1m[35m (86.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 37077ms (ActiveRecord: 104.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2016-11-08 22:50:17 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."product_id" = ?  [["product_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered products/show.html.erb within layouts/application (8.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav.html.erb (0.7ms)
+Completed 200 OK in 62ms (Views: 60.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2016-11-08 22:50:40 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."product_id" = ?[0m  [["product_id", 1]]
+  Rendered products/_item_fields.html.erb (10.3ms)
+  Rendered products/_item_fields.html.erb (9.3ms)
+  Rendered products/_item_fields.html.erb (7.7ms)
+  Rendered products/_item_fields.html.erb (7.7ms)
+  Rendered products/_form.html.erb (46.8ms)
+  Rendered products/edit.html.erb within layouts/application (49.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_nav.html.erb (2.0ms)
+Completed 200 OK in 105ms (Views: 99.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/products/1" for 127.0.0.1 at 2016-11-08 22:51:04 +0530
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PKPXQzOBfWsUb+B/f0iGTE4mZ+e4ByR3vOgRmpPrXfqojD0ZxF6awmqEGABsALOh9bldtBZNRaYgr2SQjRrsgg==", "product"=>{"category"=>"Hiking", "items_attributes"=>{"0"=>{"item_for_rent"=>"shoes", "brand"=>"nike", "rental_cost"=>"200", "_destroy"=>"false", "id"=>"1"}, "1"=>{"item_for_rent"=>"6yu6", "brand"=>"y6y", "rental_cost"=>"555", "_destroy"=>"false"}, "1478625655326"=>{"item_for_rent"=>"3543", "brand"=>"34fgv", "rental_cost"=>"344", "_destroy"=>"false"}}}, "commit"=>"Update Product", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."product_id" = ? AND "items"."id" = 1  [["product_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("brand", "rental_cost", "item_for_rent", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["brand", "y6y"], ["rental_cost", 555], ["item_for_rent", "6yu6"], ["product_id", 1], ["created_at", "2016-11-08 17:21:04.699268"], ["updated_at", "2016-11-08 17:21:04.699268"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "items" ("brand", "rental_cost", "item_for_rent", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["brand", "34fgv"], ["rental_cost", 344], ["item_for_rent", "3543"], ["product_id", 1], ["created_at", "2016-11-08 17:21:04.701257"], ["updated_at", "2016-11-08 17:21:04.701257"]]
+  [1m[36m (237.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 250ms (ActiveRecord: 238.3ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2016-11-08 22:51:04 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."product_id" = ?[0m  [["product_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered products/show.html.erb within layouts/application (8.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_nav.html.erb (0.7ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.4ms)
